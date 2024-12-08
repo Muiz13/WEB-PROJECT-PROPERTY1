@@ -1,25 +1,22 @@
 import React from 'react'
-import MapsComponent from "../components/maps/Maps"
-import { Link } from "react-router-dom";
-import Services from '../services/Service'
+import MapsComponent from "../components/Maps"
+import {Link} from "react-router-dom";
+import Services from '../Services/Services'
+
+
 
 export default function Maps() {
-    if(!Services.isAuthenticated()){
-        window.location="./login"   
-    }
-    const [maps, setMaps] = React.useState([])
-
+    const [maps,setMaps]=React.useState([])
     React.useEffect(()=>{
+        document.title="Maps"
         Services.getAllMaps(setMaps)
-        document.title="Manage Maps"
-
     },[])
     const styles = {
         marginTop: '10px',
-        padding: '50px',
+        padding: '30px',
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
-        backgroundImage: 'url("https://mdbcdn.b-cdn.net/img/new/slides/003.webp")'
+        backgroundImage: 'url("https://ak8.picdn.net/shutterstock/videos/26532368/thumb/1.jpg")'
     }
     const styleOpacity = {
         opacity: "0.8"
@@ -27,15 +24,19 @@ export default function Maps() {
     return (
         <div>
             <div className="d-flex justify-content-center text-center bg-dark text-light" style={styles}>
-                <div className="d-flex ">
+                <div className="d-flex flex-column">
+                    <div>
+                        <h1>Maps</h1>
+                    </div>
                     <div>
                         <div className="d-flex flex-row justify-content-center">
-                            <button className="btn btn-primary btn-sm fs-4 my-2" data-bs-toggle="modal" data-bs-target="#mapFormModel">New Map</button>
+                            <Link className="nav-link link-light fs-5" to="/">Home</Link>
+                            <Link className="nav-link link-light fs-5" to="/maps">Maps</Link>
                         </div>
                     </div>
                 </div>
             </div>
-            <MapsComponent maps={maps} setMaps={setMaps}/>
+            <MapsComponent maps={maps}/>            
         </div>
     )
 }
