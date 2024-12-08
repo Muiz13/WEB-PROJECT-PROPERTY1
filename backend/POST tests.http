@@ -1,0 +1,19 @@
+### POST /login Request
+POST http://localhost:3005/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "ali",
+  "password": "12345678"
+}
+
+### POST /supply Request with Token
+POST http://localhost:3005/supply HTTP/1.1
+Content-Type: multipart/form-data
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZG1pbiIsImlhdCI6MTczMzI4OTQ2OSwiZXhwIjoxNzMzMjkzMDY5fQ.LNNA1W4KxLvfZNtE7uGQeF_Sjr-dhzBLp8QcYesMp1o
+
+{
+  "title": "New Supply Item",
+  "file": ["file_path_1", "file_path_2"]
+}
+

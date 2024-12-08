@@ -1,0 +1,9 @@
+### GET request to example server
+GET http://localhost:3005/supply
+
+###
+
+### GET request to example server
+GET http://localhost:3005/property
+
+###
